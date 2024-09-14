@@ -29,28 +29,17 @@ function updatePageLanguage() {
 }
 
 function updatePlaceholders() {
-    document.getElementById('desiredTotal').placeholder = translations.desiredTotalPlaceholder || "Minimum $5.00";
-    document.getElementById('enteredAmountInput').placeholder = translations.enteredAmountInputPlaceholder || "Minimum $5.66";
+    document.getElementById('enteredAmountInput').placeholder = translations.enteredAmountInputPlaceholder || "Minimum $5.00";
+    document.getElementById('desiredTotal').placeholder = translations.desiredTotalPlaceholder || "Minimum $5.66";
 }
 
 function roundToTwo(num) {
     return Math.round((num + Number.EPSILON) * 100) / 100;
 }
 
-function calculateEnteredAmount() {
-    let desiredTotal = parseFloat(document.getElementById('desiredTotal').value);
-    if (isNaN(desiredTotal) || desiredTotal < 5.00) {
-        document.getElementById('enteredAmount').innerText = "-";
-        return;
-    }
-    let openrouterInput = (desiredTotal + 0.35) / 0.946;
-    openrouterInput = roundToTwo(openrouterInput);
-    document.getElementById('enteredAmount').innerText = openrouterInput.toFixed(2);
-}
-
 function calculateDesiredTotal() {
     let openrouterInput = parseFloat(document.getElementById('enteredAmountInput').value);
-    if (isNaN(openrouterInput) || openrouterInput < 5.66) {
+    if (isNaN(openrouterInput) || openrouterInput < 5.00) {
         document.getElementById('desiredTotalOutput').innerText = "-";
         return;
     }
@@ -59,9 +48,20 @@ function calculateDesiredTotal() {
     document.getElementById('desiredTotalOutput').innerText = actualTotal.toFixed(2);
 }
 
+function calculateEnteredAmount() {
+    let desiredTotal = parseFloat(document.getElementById('desiredTotal').value);
+    if (isNaN(desiredTotal) || desiredTotal < 5.66) {
+        document.getElementById('enteredAmount').innerText = "-";
+        return;
+    }
+    let openrouterInput = (desiredTotal + 0.35) / 0.946;
+    openrouterInput = roundToTwo(openrouterInput);
+    document.getElementById('enteredAmount').innerText = openrouterInput.toFixed(2);
+}
+
 document.addEventListener('DOMContentLoaded', (event) => {
     loadTranslations();
     
-    document.getElementById('desiredTotal').addEventListener('input', calculateEnteredAmount);
     document.getElementById('enteredAmountInput').addEventListener('input', calculateDesiredTotal);
+    document.getElementById('desiredTotal').addEventListener('input', calculateEnteredAmount);
 });
