@@ -37,6 +37,10 @@ function roundToTwo(num) {
     return Math.round((num + Number.EPSILON) * 100) / 100;
 }
 
+function roundUpToTwo(num) {
+    return Math.ceil((num + Number.EPSILON) * 100) / 100;
+}
+
 // 입력 금액(amountInput)에서 실제 결제 금액(Actual Total) 계산
 function calculateActualTotal() {
     let amountInput = parseFloat(document.getElementById('enteredAmountInput').value);
@@ -45,7 +49,7 @@ function calculateActualTotal() {
         return;
     }
     // 수수료를 더하여 실제 결제 금액을 계산
-    let actualTotal = roundToTwo( (amountInput + 0.35) / 0.946 );
+    let actualTotal = roundUpToTwo( (amountInput + 0.35) / 0.946 );
     document.getElementById('actualTotalOutput').innerText = actualTotal.toFixed(2);
 }
 
@@ -57,7 +61,7 @@ function calculateEnteredAmount() {
         return;
     }
     // 원하는 결제 금액에 맞는 입력 금액 계산
-    let amounInput = roundToTwo( 0.946 * desiredTotal - 0.35 );
+    let amounInput = roundUpToTwo( 0.946 * desiredTotal - 0.35 );
     document.getElementById('inputAmountOutput').innerText = amounInput.toFixed(2);
 }
 
