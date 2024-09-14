@@ -43,7 +43,7 @@ function calculateActualTotal() {
         document.getElementById('actualTotalOutput').innerText = "-";
         return;
     }
-    let actualTotal = 0.946 * openrouterInput - 0.35;
+    let actualTotal = openrouterInput - (0.054 * openrouterInput) - 0.35;
     actualTotal = roundToTwo(actualTotal);
     document.getElementById('actualTotalOutput').innerText = actualTotal.toFixed(2);
 }
