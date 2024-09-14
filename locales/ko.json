@@ -6,6 +6,6 @@
     "inputAmountTitle": "입력 금액으로 실제 총액 계산",
     "enteredAmountInputLabel": "OpenRouter 입력 금액 (USD):",
     "actualTotalLabel": "실제 총액:",
-    "desiredTotalPlaceholder": "최소 $5.00",
-    "enteredAmountInputPlaceholder": "최소 $5.66"
+    "desiredTotalPlaceholder": "최소 $5.66",
+    "enteredAmountInputPlaceholder": "최소 $5.00"
 }
