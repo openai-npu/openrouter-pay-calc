@@ -37,29 +37,28 @@ function roundToTwo(num) {
     return Math.round((num + Number.EPSILON) * 100) / 100;
 }
 
-// 입력 금액(Input Amount)에서 실제 결제 금액(Actual Total) 계산
+// 입력 금액(amountInput)에서 실제 결제 금액(Actual Total) 계산
 function calculateActualTotal() {
-    let E = parseFloat(document.getElementById('enteredAmountInput').value);
-    if (isNaN(E) || E < 5.00) {
+    let amountInput = parseFloat(document.getElementById('enteredAmountInput').value);
+    if (isNaN(amountInput) || amountInput < 5.00) {
         document.getElementById('actualTotalOutput').innerText = "-";
         return;
     }
     // 수수료를 더하여 실제 결제 금액을 계산
-    // let actualTotal = roundToTwo(E + (E * 0.054) + 0.35);
-    let actualTotal = roundToTwo( (E + 0.35) / 0.946 );
+    let actualTotal = roundToTwo( (amountInput + 0.35) / 0.946 );
     document.getElementById('actualTotalOutput').innerText = actualTotal.toFixed(2);
 }
 
 // 원하는 결제 금액(Desired Total)에서 입력 금액(Input Amount) 계산
 function calculateEnteredAmount() {
-    let D = parseFloat(document.getElementById('desiredTotal').value);
-    if (isNaN(D) || D < 5.66) {
+    let desiredTotal = parseFloat(document.getElementById('desiredTotal').value);
+    if (isNaN(desiredTotal) || desiredTotal < 5.66) {
         document.getElementById('inputAmountOutput').innerText = "-";
         return;
     }
     // 원하는 결제 금액에 맞는 입력 금액 계산
-    let E = roundToTwo( 0.946 * D - 0.35 );
-    document.getElementById('inputAmountOutput').innerText = E.toFixed(2);
+    let amounInput = roundToTwo( 0.946 * desiredTotal - 0.35 );
+    document.getElementById('inputAmountOutput').innerText = amounInput.toFixed(2);
 }
 
 document.addEventListener('DOMContentLoaded', () => {
