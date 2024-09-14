@@ -1,0 +1,11 @@
+{
+    "mainTitle": "OpenRouter 결제 계산기",
+    "desiredTotalTitle": "원하는 총액으로 입력 금액 계산",
+    "desiredTotalLabel": "원하는 총액 (USD):",
+    "enteredAmountLabel": "OpenRouter 입력 금액:",
+    "inputAmountTitle": "입력 금액으로 실제 총액 계산",
+    "enteredAmountInputLabel": "OpenRouter 입력 금액 (USD):",
+    "actualTotalLabel": "실제 총액:",
+    "desiredTotalPlaceholder": "최소 $5.00",
+    "enteredAmountInputPlaceholder": "최소 $5.66"
+}
