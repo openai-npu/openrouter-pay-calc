@@ -6,6 +6,6 @@
     "inputAmountTitle": "Calculate Actual Total from Input Amount",
     "enteredAmountInputLabel": "OpenRouter Input Amount (USD):",
     "actualTotalLabel": "Actual Total:",
-    "desiredTotalPlaceholder": "Minimum $5.00",
-    "enteredAmountInputPlaceholder": "Minimum $5.66"
+    "desiredTotalPlaceholder": "Minimum $5.66",
+    "enteredAmountInputPlaceholder": "Minimum $5.00"
 }
