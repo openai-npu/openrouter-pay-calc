@@ -16,7 +16,7 @@ This project provides a simple web-based calculator for OpenRouter payments. It 
 
 ### Usage
 
-1. Visit the [OpenRouter Payment Calculator](https://your-github-username.github.io/openrouter-pay-calc/)
+1. Visit the [OpenRouter Payment Calculator](https://openai-npu.github.io/openrouter-pay-calc/)
 2. Enter your desired total payout or the OpenRouter input amount
 3. The calculator will instantly show you the corresponding amount
 
@@ -49,7 +49,7 @@ This project is built with HTML, CSS, and JavaScript. To run it locally:
 
 ### 사용 방법
 
-1. [OpenRouter 결제 계산기](https://your-github-username.github.io/openrouter-pay-calc/)에 접속합니다
+1. [OpenRouter 결제 계산기](https://openai-npu.github.io/openrouter-pay-calc/)에 접속합니다
 2. 원하는 총 지불액 또는 OpenRouter 입력 금액을 입력합니다
 3. 계산기가 즉시 해당하는 금액을 보여줍니다
 
