@@ -2,9 +2,16 @@ let currentLanguage = 'en';
 let translations = {};
 
 async function loadTranslations() {
-    const response = await fetch(`locales/${currentLanguage}.json`);
-    translations = await response.json();
-    updatePageLanguage();
+    try {
+        const response = await fetch(`locales/${currentLanguage}.json`);
+        if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        translations = await response.json();
+        updatePageLanguage();
+    } catch (e) {
+        console.error("Could not load translations:", e);
+    }
 }
 
 function changeLanguage(lang) {
@@ -22,8 +29,8 @@ function updatePageLanguage() {
 }
 
 function updatePlaceholders() {
-    document.getElementById('desiredTotal').placeholder = translations.desiredTotalPlaceholder;
-    document.getElementById('enteredAmountInput').placeholder = translations.enteredAmountInputPlaceholder;
+    document.getElementById('desiredTotal').placeholder = translations.desiredTotalPlaceholder || "Minimum $5.00";
+    document.getElementById('enteredAmountInput').placeholder = translations.enteredAmountInputPlaceholder || "Minimum $5.66";
 }
 
 function roundToTwo(num) {
@@ -52,4 +59,9 @@ function calculateDesiredTotal() {
     document.getElementById('desiredTotalOutput').innerText = actualTotal.toFixed(2);
 }
 
-loadTranslations();
+document.addEventListener('DOMContentLoaded', (event) => {
+    loadTranslations();
+    
+    document.getElementById('desiredTotal').addEventListener('input', calculateEnteredAmount);
+    document.getElementById('enteredAmountInput').addEventListener('input', calculateDesiredTotal);
+});
