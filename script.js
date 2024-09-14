@@ -45,7 +45,8 @@ function calculateActualTotal() {
         return;
     }
     // 수수료를 더하여 실제 결제 금액을 계산
-    let actualTotal = roundToTwo(E + (E * 0.054) + 0.35);
+    // let actualTotal = roundToTwo(E + (E * 0.054) + 0.35);
+    let actualTotal = roundToTwo( (E + 0.35) / 0.946 );
     document.getElementById('actualTotalOutput').innerText = actualTotal.toFixed(2);
 }
 
@@ -57,7 +58,7 @@ function calculateEnteredAmount() {
         return;
     }
     // 원하는 결제 금액에 맞는 입력 금액 계산
-    let E = roundToTwo((D - 0.35) / 1.054);
+    let E = roundToTwo( 0.946 * D - 0.35 );
     document.getElementById('inputAmountOutput').innerText = E.toFixed(2);
 }
 
