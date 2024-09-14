@@ -37,7 +37,7 @@ function roundToTwo(num) {
     return Math.round((num + Number.EPSILON) * 100) / 100;
 }
 
-function calculateActualTotal() {
+function calculateInputAmount() {
     let openrouterInput = parseFloat(document.getElementById('enteredAmountInput').value);
     if (isNaN(openrouterInput) || openrouterInput < 5.66) {
         document.getElementById('actualTotalOutput').innerText = "-";
@@ -48,7 +48,7 @@ function calculateActualTotal() {
     document.getElementById('actualTotalOutput').innerText = actualTotal.toFixed(2);
 }
 
-function calculateInputAmount() {
+function calculateActualTotal() {
     let desiredTotal = parseFloat(document.getElementById('desiredTotal').value);
     if (isNaN(desiredTotal) || desiredTotal < 5.00) {
         document.getElementById('inputAmountOutput').innerText = "-";
