@@ -50,7 +50,7 @@ function calculateActualTotal() {
     }
     // 수수료를 더하여 실제 결제 금액을 계산
     // let actualTotal = roundUpToTwo( (amountInput + 0.35) / 0.946 );
-    let actualTotal = roundUpToTwo( 1.054 * amountInput + 0.39 );
+    let actualTotal = roundToTwo( 1.054 * amountInput + 0.39 );
     document.getElementById('actualTotalOutput').innerText = actualTotal.toFixed(2);
 }
 
@@ -62,7 +62,7 @@ function calculateEnteredAmount() {
         return;
     }
     // 원하는 결제 금액에 맞는 입력 금액 계산
-    let amounInput = roundUpToTwo( (desiredTotal - 0.39) / 1.054 );
+    let amounInput = roundToTwo( (desiredTotal - 0.39) / 1.054 );
     document.getElementById('inputAmountOutput').innerText = amounInput.toFixed(2);
 }
 
