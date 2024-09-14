@@ -40,7 +40,7 @@ function roundToTwo(num) {
 // 입력 금액(Input Amount)에서 실제 결제 금액(Actual Total) 계산
 function calculateActualTotal() {
     let E = parseFloat(document.getElementById('enteredAmountInput').value);
-    if (isNaN(E) || E < 5.66) {
+    if (isNaN(E) || E < 5.00) {
         document.getElementById('actualTotalOutput').innerText = "-";
         return;
     }
@@ -52,12 +52,12 @@ function calculateActualTotal() {
 // 원하는 결제 금액(Desired Total)에서 입력 금액(Input Amount) 계산
 function calculateEnteredAmount() {
     let D = parseFloat(document.getElementById('desiredTotal').value);
-    if (isNaN(D) || D < 5.00) {
+    if (isNaN(D) || D < 5.66) {
         document.getElementById('inputAmountOutput').innerText = "-";
         return;
     }
     // 원하는 결제 금액에 맞는 입력 금액 계산
-    let E = roundToTwo((D + 0.35) / 0.946);
+    let E = roundToTwo((D - 0.35) / 1.054);
     document.getElementById('inputAmountOutput').innerText = E.toFixed(2);
 }
 
