@@ -37,31 +37,31 @@ function roundToTwo(num) {
     return Math.round((num + Number.EPSILON) * 100) / 100;
 }
 
-function calculateInputAmount() {
-    let openrouterInput = parseFloat(document.getElementById('enteredAmountInput').value);
-    if (isNaN(openrouterInput) || openrouterInput < 5.66) {
+// 입력 금액으로 원하는 총액(D) 계산
+function calculateDesiredTotal() {
+    let enteredAmount = parseFloat(document.getElementById('enteredAmountInput').value);
+    if (isNaN(enteredAmount) || enteredAmount < 5.66) {
         document.getElementById('actualTotalOutput').innerText = "-";
         return;
     }
-    let actualTotal = openrouterInput - (0.054 * openrouterInput) - 0.35;
-    actualTotal = roundToTwo(actualTotal);
-    document.getElementById('actualTotalOutput').innerText = actualTotal.toFixed(2);
+    let desiredTotal = roundToTwo(0.946 * enteredAmount - 0.35);
+    document.getElementById('actualTotalOutput').innerText = desiredTotal.toFixed(2);
 }
 
-function calculateActualTotal() {
+// 원하는 총액으로 입력 금액(E) 계산
+function calculateEnteredAmount() {
     let desiredTotal = parseFloat(document.getElementById('desiredTotal').value);
     if (isNaN(desiredTotal) || desiredTotal < 5.00) {
         document.getElementById('inputAmountOutput').innerText = "-";
         return;
     }
-    let openrouterInput = (desiredTotal + 0.35) / 0.946;
-    openrouterInput = roundToTwo(openrouterInput);
-    document.getElementById('inputAmountOutput').innerText = openrouterInput.toFixed(2);
+    let enteredAmount = roundToTwo((desiredTotal + 0.35) / 0.946);
+    document.getElementById('inputAmountOutput').innerText = enteredAmount.toFixed(2);
 }
 
-document.addEventListener('DOMContentLoaded', (event) => {
+document.addEventListener('DOMContentLoaded', () => {
     loadTranslations();
     
-    document.getElementById('enteredAmountInput').addEventListener('input', calculateActualTotal);
-    document.getElementById('desiredTotal').addEventListener('input', calculateInputAmount);
+    document.getElementById('enteredAmountInput').addEventListener('input', calculateDesiredTotal);
+    document.getElementById('desiredTotal').addEventListener('input', calculateEnteredAmount);
 });
