@@ -20,6 +20,12 @@ This project provides a simple web-based calculator for OpenRouter payments. It 
 2. Enter your desired total payout or the OpenRouter input amount
 3. The calculator will instantly show you the corresponding amount
 
+### Payment Amount Constraints
+
+- Minimum desired total payout: $5.00
+- Minimum OpenRouter input amount: $5.66
+- The calculator is designed for amounts within the range where the additional fee (0.4% of input amount) does not exceed $2. For larger amounts, please consult OpenRouter's official documentation.
+
 ### Development
 
 This project is built with HTML, CSS, and JavaScript. To run it locally:
@@ -46,6 +52,12 @@ This project is built with HTML, CSS, and JavaScript. To run it locally:
 1. [OpenRouter 결제 계산기](https://your-github-username.github.io/openrouter-pay-calc/)에 접속합니다
 2. 원하는 총 지불액 또는 OpenRouter 입력 금액을 입력합니다
 3. 계산기가 즉시 해당하는 금액을 보여줍니다
+
+### 결제 금액 제약 조건
+
+- 최소 원하는 총 지불액: $5.00
+- 최소 OpenRouter 입력 금액: $5.66
+- 이 계산기는 추가 수수료(입력 금액의 0.4%)가 $2를 초과하지 않는 범위 내의 금액에 대해 설계되었습니다. 더 큰 금액에 대해서는 OpenRouter의 공식 문서를 참조해 주세요.
 
 ### 개발
 
